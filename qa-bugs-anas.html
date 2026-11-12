@@ -1,0 +1,330 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Tickets Owned by Anas</title>
+<style>
+  :root{
+    --bg:#f5f6f9; --surface:#ffffff; --surface-2:#fbfcfd; --border:#e4e7ec; --border-2:#eef1f4;
+    --ink:#192029; --ink-2:#48525f; --ink-3:#7b8692;
+    --accent:#4a5fc1; --accent-soft:#edf0fb; --accent-ink:#3a4ba3;
+    --stripe-track:#eceef2;
+    --po:#e5484d; --po-bg:#fdecec; --po-ink:#b4262b;
+    --p1:#df6610; --p1-bg:#fdefe3; --p1-ink:#a94d0b;
+    --p2:#c0890a; --p2-bg:#fbf2d9; --p2-ink:#8a6305;
+    --p3:#6b7686; --p3-bg:#eef0f3; --p3-ink:#515b69;
+    --none:#aab3bf; --none-bg:#f2f4f6; --none-ink:#6b7482;
+    --reopen:#8257e0; --reopen-bg:#f0ebfb; --reopen-ink:#653fc0;
+    --shadow:0 1px 2px rgba(20,30,50,.04),0 2px 8px rgba(20,30,50,.05);
+    --mono:ui-monospace,"SF Mono",SFMono-Regular,Menlo,Consolas,monospace;
+    --sans:-apple-system,BlinkMacSystemFont,"Segoe UI",system-ui,sans-serif;
+  }
+  @media (prefers-color-scheme:dark){
+    :root{
+      --bg:#0e1218; --surface:#161c25; --surface-2:#1a2130; --border:#28313f; --border-2:#222a37;
+      --ink:#e9edf3; --ink-2:#a7b2c0; --ink-3:#697484;
+      --accent:#8296f2; --accent-soft:#1f2740; --accent-ink:#aab8f8;
+      --stripe-track:#242d3a;
+      --po:#f06a6e; --po-bg:#2e1a1d; --po-ink:#f4999b;
+      --p1:#f0894a; --p1-bg:#2d2017; --p1-ink:#f3ab7f;
+      --p2:#e0b445; --p2-bg:#2b2615; --p2-ink:#eacc7e;
+      --p3:#8793a3; --p3-bg:#232b37; --p3-ink:#aab4c1;
+      --none:#5c6673; --none-bg:#1e2530; --none-ink:#8d97a5;
+      --reopen:#a483ec; --reopen-bg:#241d39; --reopen-ink:#c4aef5;
+      --shadow:0 1px 2px rgba(0,0,0,.25),0 2px 10px rgba(0,0,0,.28);
+    }
+  }
+  :root[data-theme="light"]{
+    --bg:#f5f6f9; --surface:#ffffff; --surface-2:#fbfcfd; --border:#e4e7ec; --border-2:#eef1f4;
+    --ink:#192029; --ink-2:#48525f; --ink-3:#7b8692;
+    --accent:#4a5fc1; --accent-soft:#edf0fb; --accent-ink:#3a4ba3; --stripe-track:#eceef2;
+    --po:#e5484d; --po-bg:#fdecec; --po-ink:#b4262b;
+    --p1:#df6610; --p1-bg:#fdefe3; --p1-ink:#a94d0b;
+    --p2:#c0890a; --p2-bg:#fbf2d9; --p2-ink:#8a6305;
+    --p3:#6b7686; --p3-bg:#eef0f3; --p3-ink:#515b69;
+    --none:#aab3bf; --none-bg:#f2f4f6; --none-ink:#6b7482;
+    --reopen:#8257e0; --reopen-bg:#f0ebfb; --reopen-ink:#653fc0;
+    --shadow:0 1px 2px rgba(20,30,50,.04),0 2px 8px rgba(20,30,50,.05);
+  }
+  :root[data-theme="dark"]{
+    --bg:#0e1218; --surface:#161c25; --surface-2:#1a2130; --border:#28313f; --border-2:#222a37;
+    --ink:#e9edf3; --ink-2:#a7b2c0; --ink-3:#697484;
+    --accent:#8296f2; --accent-soft:#1f2740; --accent-ink:#aab8f8; --stripe-track:#242d3a;
+    --po:#f06a6e; --po-bg:#2e1a1d; --po-ink:#f4999b;
+    --p1:#f0894a; --p1-bg:#2d2017; --p1-ink:#f3ab7f;
+    --p2:#e0b445; --p2-bg:#2b2615; --p2-ink:#eacc7e;
+    --p3:#8793a3; --p3-bg:#232b37; --p3-ink:#aab4c1;
+    --none:#5c6673; --none-bg:#1e2530; --none-ink:#8d97a5;
+    --reopen:#a483ec; --reopen-bg:#241d39; --reopen-ink:#c4aef5;
+    --shadow:0 1px 2px rgba(0,0,0,.25),0 2px 10px rgba(0,0,0,.28);
+  }
+
+  *{box-sizing:border-box}
+  body{margin:0;background:var(--bg);color:var(--ink);font-family:var(--sans);
+    line-height:1.5;-webkit-font-smoothing:antialiased;font-size:15px}
+  .wrap{max-width:1120px;margin:0 auto;padding:36px 24px 80px}
+
+  /* ---- header ---- */
+  .masthead{display:flex;justify-content:space-between;align-items:flex-start;gap:20px;flex-wrap:wrap;margin-bottom:28px}
+  .eyebrow{font-size:11px;font-weight:650;letter-spacing:.14em;text-transform:uppercase;color:var(--accent);margin:0 0 8px}
+  h1{font-size:clamp(26px,4vw,36px);line-height:1.08;letter-spacing:-.022em;font-weight:700;margin:0;text-wrap:balance}
+  .sub{margin:12px 0 0;max-width:66ch;color:var(--ink-2);font-size:14.5px}
+  .sub b{color:var(--ink);font-weight:600}
+  .asof{display:inline-flex;align-items:center;gap:7px;padding:6px 12px;border:1px solid var(--border);
+    border-radius:999px;background:var(--surface);font-size:12px;color:var(--ink-2);white-space:nowrap;box-shadow:var(--shadow)}
+  .asof b{color:var(--ink);font-weight:600;font-variant-numeric:tabular-nums}
+  .dot{width:7px;height:7px;border-radius:50%;background:#31b06b;box-shadow:0 0 0 3px rgba(49,176,107,.16)}
+
+  /* ---- stat tiles ---- */
+  .tiles{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin-bottom:26px}
+  .tile{background:var(--surface);border:1px solid var(--border);border-radius:13px;padding:16px 16px 14px;box-shadow:var(--shadow)}
+  .tile .k{font-size:11px;font-weight:600;letter-spacing:.05em;text-transform:uppercase;color:var(--ink-3)}
+  .tile .v{font-size:30px;font-weight:720;letter-spacing:-.02em;margin-top:5px;font-variant-numeric:tabular-nums;font-family:var(--mono)}
+  .tile .v small{font-size:13px;color:var(--ink-3);font-weight:600;margin-left:3px;letter-spacing:0}
+  .tile .split{display:flex;gap:9px 10px;margin-top:9px;flex-wrap:wrap}
+  .tile .split span{font-size:11.5px;color:var(--ink-2);display:inline-flex;align-items:center;gap:5px}
+  .swatch{width:9px;height:9px;border-radius:3px;display:inline-block}
+
+  /* ---- filter bar ---- */
+  .toolbar{position:sticky;top:0;z-index:5;background:color-mix(in srgb,var(--bg) 86%,transparent);
+    backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);
+    padding:12px 0;margin:0 -24px 20px;border-bottom:1px solid var(--border);}
+  .toolbar-in{max-width:1120px;margin:0 auto;padding:0 24px;display:flex;gap:14px 18px;align-items:center;flex-wrap:wrap}
+  .fgroup{display:flex;align-items:center;gap:6px;flex-wrap:wrap}
+  .flabel{font-size:10.5px;font-weight:650;letter-spacing:.08em;text-transform:uppercase;color:var(--ink-3);margin-right:2px}
+  .chip{appearance:none;border:1px solid var(--border);background:var(--surface);color:var(--ink-2);
+    font:inherit;font-size:12.5px;font-weight:550;padding:5px 11px;border-radius:999px;cursor:pointer;
+    transition:background .12s,color .12s,border-color .12s;display:inline-flex;align-items:center;gap:6px;line-height:1.3}
+  .chip:hover{border-color:var(--accent);color:var(--ink)}
+  .chip[aria-pressed="true"]{background:var(--accent);border-color:var(--accent);color:#fff}
+  :root[data-theme="dark"] .chip[aria-pressed="true"]{color:#0e1218}
+  @media (prefers-color-scheme:dark){.chip[aria-pressed="true"]{color:#0e1218}}
+  .chip .ct{font-family:var(--mono);font-size:11px;opacity:.72;font-variant-numeric:tabular-nums}
+  .search{flex:1;min-width:150px;display:flex;align-items:center;gap:8px;border:1px solid var(--border);
+    background:var(--surface);border-radius:999px;padding:6px 14px}
+  .search input{border:0;background:transparent;color:var(--ink);font:inherit;font-size:13px;width:100%;outline:none}
+  .search svg{flex:none;color:var(--ink-3)}
+
+  /* ---- column sections ---- */
+  .col{margin-bottom:26px}
+  .col-head{display:flex;align-items:baseline;gap:11px;margin:0 2px 11px}
+  .col-head h2{font-size:16px;font-weight:680;letter-spacing:-.01em;margin:0}
+  .col-head .n{font-family:var(--mono);font-size:12px;font-weight:600;color:var(--ink-3);font-variant-numeric:tabular-nums}
+  .col-head .desc{font-size:12px;color:var(--ink-3);margin-left:auto;text-align:right}
+
+  .list{background:var(--surface);border:1px solid var(--border);border-radius:14px;overflow:hidden;box-shadow:var(--shadow)}
+  .row{display:grid;grid-template-columns:4px 1fr auto;align-items:center;gap:0;
+    border-top:1px solid var(--border-2);position:relative}
+  .row:first-child{border-top:0}
+  .row .stripe{align-self:stretch;background:var(--pri)}
+  .row .main{padding:13px 8px 13px 16px;min-width:0}
+  .row .title{font-size:13.5px;font-weight:550;color:var(--ink);text-decoration:none;display:inline;
+    letter-spacing:-.005em}
+  .row .title:hover{color:var(--accent);text-decoration:underline;text-underline-offset:2px}
+  .row .meta{display:flex;align-items:center;gap:7px;flex-wrap:wrap;margin-top:7px}
+  .row .side{display:flex;align-items:center;gap:8px;padding:13px 16px 13px 10px;justify-content:flex-end;flex-wrap:wrap}
+
+  .pill{font-size:10.5px;font-weight:650;letter-spacing:.02em;padding:3px 8px;border-radius:6px;white-space:nowrap;
+    display:inline-flex;align-items:center;gap:5px;line-height:1.35}
+  .pill.pr{color:var(--pri-ink);background:var(--pri-bg)}
+  .pill.pr::before{content:"";width:6px;height:6px;border-radius:50%;background:var(--pri)}
+  .by{font-size:11.5px;color:var(--ink-2);display:inline-flex;align-items:center;gap:6px}
+  .ava{width:19px;height:19px;border-radius:50%;display:grid;place-items:center;font-size:9px;font-weight:700;
+    color:#fff;letter-spacing:.02em}
+  .tag{font-size:10.5px;color:var(--ink-3);font-family:var(--mono);padding:2px 6px;border:1px solid var(--border);
+    border-radius:5px;white-space:nowrap}
+  .tag.sp{color:var(--ink-2)}
+  .reopen{font-size:10.5px;font-weight:650;color:var(--reopen-ink);background:var(--reopen-bg);
+    padding:3px 8px;border-radius:6px;display:inline-flex;align-items:center;gap:5px;white-space:nowrap}
+  .reopen svg{width:11px;height:11px}
+
+  .empty{padding:26px 16px;text-align:center;color:var(--ink-3);font-size:13px}
+  .empty b{color:var(--ink-2);font-weight:600}
+
+  .noresults{display:none;padding:40px 16px;text-align:center;color:var(--ink-3)}
+  .foot{margin-top:34px;padding-top:18px;border-top:1px solid var(--border);font-size:12px;color:var(--ink-3);
+    display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap}
+  .foot code{font-family:var(--mono)}
+
+  .chip:focus-visible,.title:focus-visible,.search input:focus-visible,a:focus-visible{
+    outline:2px solid var(--accent);outline-offset:2px;border-radius:4px}
+
+  @media (max-width:720px){
+    .tiles{grid-template-columns:repeat(2,1fr)}
+    .row{grid-template-columns:4px 1fr}
+    .row .side{grid-column:2;padding:0 16px 13px 16px;justify-content:flex-start}
+    .col-head .desc{display:none}
+  }
+  @media (prefers-reduced-motion:reduce){*{transition:none!important}}
+</style>
+
+</head>
+<body>
+<div class="wrap">
+  <header class="masthead">
+    <div>
+      <p class="eyebrow">Dallal · Board Triage</p>
+      <h1>Open tickets owned by Anas</h1>
+      <p class="sub">Open tickets assigned to <b>Anas Nammas</b>, read straight from the board columns <b>Raised by QA</b>, <b>Reopen</b> and <b>In Development</b>. Raised by QA — <b>Akash Sharma</b>, <b>Sudhanshu Singh</b>, <b>Shrouk</b>, <b>Gyselda Daija</b> — plus product-lead tickets filed by <b>Rayan Abdul Baki</b>.</p>
+    </div>
+    <div class="asof"><span class="dot"></span>Board as of <b>13 Nov 2026</b></div>
+  </header>
+
+  <section class="tiles">
+    <div class="tile"><div class="k">Open tickets</div><div class="v" id="t-total">28</div>
+      <div class="split"><span><i class="swatch" style="background:var(--accent)"></i>Owned by Anas</span></div></div>
+    <div class="tile"><div class="k">By priority</div><div class="v" id="t-po">17<small>blocker</small></div>
+      <div class="split">
+        <span><i class="swatch" style="background:var(--p1)"></i>P1 · 1</span>
+        <span><i class="swatch" style="background:var(--p2)"></i>P2 · 4</span>
+        <span><i class="swatch" style="background:var(--p3)"></i>P3 · 2</span>
+        <span><i class="swatch" style="background:var(--none)"></i>None · 4</span>
+      </div></div>
+    <div class="tile"><div class="k">Reopened</div><div class="v" id="t-reopen">7<small>of 28</small></div>
+      <div class="split"><span><i class="swatch" style="background:var(--reopen)"></i>Bounced back ≥1×</span></div></div>
+    <div class="tile"><div class="k">By author</div><div class="v" id="t-top">17<small>Akash</small></div>
+      <div class="split">
+        <span>Rayan · 5</span><span>Sudhanshu · 4</span><span>Shrouk · 2</span><span>Gyselda · 0</span>
+      </div></div>
+  </section>
+
+  <div class="toolbar">
+    <div class="toolbar-in">
+      <div class="fgroup" id="f-col"><span class="flabel">Column</span></div>
+      <div class="fgroup" id="f-pri"><span class="flabel">Priority</span></div>
+      <div class="fgroup" id="f-by"><span class="flabel">Author</span></div>
+      <label class="search">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><circle cx="11" cy="11" r="7"/><path d="m21 21-4.3-4.3"/></svg>
+        <input id="q" type="search" placeholder="Filter by title…" aria-label="Filter tickets by title">
+      </label>
+    </div>
+  </div>
+
+  <main id="board"></main>
+  <div class="noresults" id="noresults">No tickets match these filters.</div>
+
+  <footer class="foot">
+    <span>Read directly per board column via <code>get_tasks(section)</code> — authoritative current state, not search. Three Epic umbrella tickets and “Bulk Upload Issues” excluded per standing request.</span>
+    <span id="shown"></span>
+  </footer>
+</div>
+
+<script>
+const DATA = [
+  // ---- Raised by QA ----
+  {col:"Raised by QA", pr:"PO Blocker", title:"[Web] Screen-to-screen animations do not follow the prototype", by:"Akash", plat:"FE-W+M", sprint:19, ro:0, url:"https://app.asana.com/0/1214388950902741/1220400734294427"},
+  {col:"Raised by QA", pr:"PO Blocker", title:"[Mobile] [Query] Filters: price range slider disappears when a category has no properties", by:"Akash", plat:"FE-M", sprint:19, ro:0, url:"https://app.asana.com/0/1214388950902741/1220460253016207"},
+  {col:"Raised by QA", pr:"P3 Medium", title:"[Web] Listing flow shows “discard this draft and start again” — copy not in Figma", by:"Sudhanshu", plat:"FE-W", sprint:19, ro:0, url:"https://app.asana.com/0/1214388950902741/1220414448165241"},
+  // ---- Reopen · Akash (PO Blockers) ----
+  {col:"Reopen", pr:"PO Blocker", title:"[Web] Filters: Additional rooms, Storage activities and Plot type use chips instead of checkboxes", by:"Akash", plat:"FE-W", sprint:18, ro:0, url:"https://app.asana.com/0/1214388950902741/1220422012143882"},
+  {col:"Reopen", pr:"PO Blocker", title:"[Web] Filters: chips wrap onto two rows instead of one", by:"Akash", plat:"FE-W", sprint:18, ro:0, url:"https://app.asana.com/0/1214388950902741/1220420588719882"},
+  {col:"Reopen", pr:"PO Blocker", title:"[Web] Filters: Area field interaction and disabled states don’t match design", by:"Akash", plat:"FE-W", sprint:18, ro:0, url:"https://app.asana.com/0/1214388950902741/1220420588910137"},
+  {col:"Reopen", pr:"PO Blocker", title:"[Web] Filters: Price range component doesn’t match design", by:"Akash", plat:"FE-W", sprint:18, ro:0, url:"https://app.asana.com/0/1214388950902741/1220422012504224"},
+  {col:"Reopen", pr:"PO Blocker", title:"[Web] Filters: Plot type options don’t follow the Plot type card design", by:"Akash", plat:"FE-W", sprint:18, ro:0, url:"https://app.asana.com/0/1214388950902741/1220420337590962"},
+  {col:"Reopen", pr:"PO Blocker", title:"[Web] Listing flow: PACI number text and info icon are not aligned", by:"Akash", plat:"FE-W", sprint:18, ro:0, url:"https://app.asana.com/0/1214388950902741/1220420593055244"},
+  {col:"Reopen", pr:"PO Blocker", title:"[Web] Listing flow: no 4px gap between dropdown button and menu", by:"Akash", plat:"FE-W", sprint:18, ro:0, url:"https://app.asana.com/0/1214388950902741/1220438797677725"},
+  {col:"Reopen", pr:"PO Blocker", title:"[Web] Listing flow: dropdown (aspect ratio / photo options) doesn’t match design", by:"Akash", plat:"FE-W", sprint:18, ro:0, url:"https://app.asana.com/0/1214388950902741/1220420345518886"},
+  {col:"Reopen", pr:"PO Blocker", title:"[Web] Listing flow: read-only field looks active", by:"Akash", plat:"FE-W", sprint:18, ro:0, url:"https://app.asana.com/0/1214388950902741/1220420589542783"},
+  {col:"Reopen", pr:"PO Blocker", title:"[Web] Listing flow: input field and buttons not centre-aligned", by:"Akash", plat:"FE-W", sprint:18, ro:0, url:"https://app.asana.com/0/1214388950902741/1220420508318290"},
+  {col:"Reopen", pr:"PO Blocker", title:"[Web] [Query] Listing flow: why does the AI-generated description text start on a second row?", by:"Akash", plat:"FE-W", sprint:18, ro:0, url:"https://app.asana.com/0/1214388950902741/1220420599869941"},
+  {col:"Reopen", pr:"PO Blocker", title:"[Web] Listing flow: Publish confirmation popup does not appear for listers whose profile is not yet approved", by:"Akash", plat:"FE-W+M", sprint:19, ro:1, url:"https://app.asana.com/0/1214388950902741/1220400657218356"},
+  {col:"Reopen", pr:"PO Blocker", title:"[Web] Listing flow: Industrial shop does not follow the Listing Flow data sheet", by:"Akash", plat:"FE-W", sprint:19, ro:0, url:"https://app.asana.com/0/1214388950902741/1220412025288844"},
+  {col:"Reopen", pr:"PO Blocker", title:"[Web] Lister registration: Civil ID is not filled in automatically", by:"Akash", plat:"FE-W+M", sprint:19, ro:1, url:"https://app.asana.com/0/1214388950902741/1220400734406155"},
+  {col:"Reopen", pr:"PO Blocker", title:"[Web] Listing flow: no popup when the lister leaves the flow without completing it", by:"Akash", plat:"FE-W+M", sprint:19, ro:0, url:"https://app.asana.com/0/1214388950902741/1220400889890657"},
+  // ---- Reopen · Shrouk ----
+  {col:"Reopen", pr:"P2 High", title:"[BE / Lister Verification – Data Autofill] Company and licensed broker lookup fails for valid scraped data", by:"Shrouk", plat:"BE", sprint:17, ro:3, url:"https://app.asana.com/0/1214388950902741/1219439897053978"},
+  {col:"Reopen", pr:"P2 High", title:"[Admin Panel / Users & Audit Trail] Team members are incorrectly displayed as agents", by:"Shrouk", plat:"FE-W", sprint:17, ro:1, url:"https://app.asana.com/0/1214388950902741/1220420248952508"},
+  // ---- Reopen · Sudhanshu ----
+  {col:"Reopen", pr:"P2 High", title:"[Web] “We found your earlier draft…” shows on every new listing — no address entered, drafts not in My Properties", by:"Sudhanshu", plat:"FE-W+BE", sprint:19, ro:1, url:"https://app.asana.com/0/1214388950902741/1220377821207037"},
+  {col:"Reopen", pr:"P2 High", title:"[Web] Assign to Agent lists agents outside the lister’s team, and list size varies per property", by:"Sudhanshu", plat:"FE-W+BE", sprint:19, ro:1, url:"https://app.asana.com/0/1214388950902741/1220399306509677"},
+  {col:"Reopen", pr:"P3 Medium", title:"[Web] Admin listing flow: content shows through a transparent strip below the Save draft / Add property bar", by:"Sudhanshu", plat:"FE-W", sprint:19, ro:1, url:"https://app.asana.com/0/1214388950902741/1220390389388814"},
+  // ---- Reopen · Rayan (product-lead) ----
+  {col:"Reopen", pr:"P1 Critical", title:"DAL-UI/UX Overhaul — Listing Flow, Search, and Filter", by:"Rayan", plat:"—", sprint:18, ro:0, url:"https://app.asana.com/0/1214388950902741/1219570455965067"},
+  {col:"Reopen", pr:"No priority", title:"Glitch transitioning between sign up / sign in, or register via email vs phone", by:"Rayan", plat:"—", sprint:null, ro:0, url:"https://app.asana.com/0/1214388950902741/1220204375520603"},
+  {col:"Reopen", pr:"No priority", title:"Account dropdown menu (web) — icons, copy and ordering", by:"Rayan", plat:"—", sprint:null, ro:0, url:"https://app.asana.com/0/1214388950902741/1220204404744468"},
+  {col:"Reopen", pr:"No priority", title:"Design errors pertaining to lister registration form", by:"Rayan", plat:"—", sprint:null, ro:0, url:"https://app.asana.com/0/1214388950902741/1220204404744476"},
+  {col:"Reopen", pr:"No priority", title:"Gyselda’s Review", by:"Rayan", plat:"—", sprint:null, ro:0, url:"https://app.asana.com/0/1214388950902741/1220165596923589"},
+];
+
+const COLS = ["Raised by QA","Reopen","In Development"];
+const COL_DESC = {"Raised by QA":"Freshly filed by QA","Reopen":"Failed re-test, bounced back","In Development":"Being worked now"};
+const PRI_ORDER = {"PO Blocker":0,"P1 Critical":1,"P2 High":2,"P3 Medium":3,"No priority":4};
+const PRI_SHORT = {"PO Blocker":"PO Blocker","P1 Critical":"P1","P2 High":"P2","P3 Medium":"P3","No priority":"None"};
+const PRI_VAR = {"PO Blocker":"po","P1 Critical":"p1","P2 High":"p2","P3 Medium":"p3","No priority":"none"};
+const BY_COLOR = {"Akash":"#4a5fc1","Sudhanshu":"#1f9e74","Shrouk":"#c0590a","Gyselda":"#9a4bb8","Rayan":"#5e7186"};
+const BYS = ["Akash","Sudhanshu","Shrouk","Gyselda","Rayan"];
+
+const state = {col:"All", pri:"All", by:"All", q:""};
+
+function esc(s){return s.replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));}
+function initials(n){return n.slice(0,2).toUpperCase();}
+
+function buildChips(host, values, key){
+  values.forEach(v=>{
+    const b=document.createElement("button");
+    b.className="chip"; b.type="button"; b.setAttribute("aria-pressed", state[key]===v);
+    b.dataset.val=v;
+    const count = v==="All" ? DATA.length : DATA.filter(d=>d[key]===v).length;
+    const lbl = key==="pri" && v!=="All" ? PRI_SHORT[v] : v;
+    b.innerHTML = esc(lbl) + (v==="All"?"":` <span class="ct">${count}</span>`);
+    b.addEventListener("click",()=>{ state[key]=v; syncChips(host,key); render(); });
+    host.appendChild(b);
+  });
+}
+function syncChips(host,key){ host.querySelectorAll(".chip").forEach(c=>c.setAttribute("aria-pressed", state[key]===c.dataset.val)); }
+
+function row(d){
+  const v=PRI_VAR[d.pr];
+  const reopen = d.ro>0 ? `<span class="reopen" title="Reopened ${d.ro}×"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.3"><path d="M3 2v6h6"/><path d="M3 13a9 9 0 1 0 3-7.7L3 8"/></svg>${d.ro}×</span>` : "";
+  const plat = d.plat && d.plat!=="—" ? `<span class="tag">${esc(d.plat)}</span>` : "";
+  const sprint = d.sprint ? `<span class="tag sp">S${d.sprint}</span>` : "";
+  return `<div class="row" style="--pri:var(--${v});--pri-ink:var(--${v}-ink);--pri-bg:var(--${v}-bg)">
+    <span class="stripe"></span>
+    <div class="main">
+      <a class="title" href="${d.url}" target="_blank" rel="noopener">${esc(d.title)}</a>
+      <div class="meta">
+        <span class="by"><span class="ava" style="background:${BY_COLOR[d.by]}">${initials(d.by)}</span>${esc(d.by)}</span>
+        ${plat}${sprint}
+      </div>
+    </div>
+    <div class="side">
+      ${reopen}
+      <span class="pill pr">${esc(d.pr)}</span>
+    </div>
+  </div>`;
+}
+
+function render(){
+  const q=state.q.trim().toLowerCase();
+  const match=d=> (state.col==="All"||d.col===state.col)
+    && (state.pri==="All"||d.pr===state.pri)
+    && (state.by==="All"||d.by===state.by)
+    && (!q || d.title.toLowerCase().includes(q));
+
+  const board=document.getElementById("board");
+  board.innerHTML="";
+  let shown=0;
+  COLS.forEach(col=>{
+    if(state.col!=="All" && state.col!==col) return;
+    const items=DATA.filter(d=>d.col===col && match(d))
+      .sort((a,b)=> PRI_ORDER[a.pr]-PRI_ORDER[b.pr] || b.ro-a.ro);
+    const total=DATA.filter(d=>d.col===col).length;
+    shown+=items.length;
+    const sec=document.createElement("section");
+    sec.className="col";
+    const body = items.length
+      ? `<div class="list">${items.map(row).join("")}</div>`
+      : (total===0
+          ? `<div class="list"><div class="empty"><b>Nothing here.</b> No Anas-owned tickets sit in this column right now.</div></div>`
+          : `<div class="list"><div class="empty">No tickets match the current filters in this column.</div></div>`);
+    sec.innerHTML=`<div class="col-head"><h2>${col}</h2><span class="n">${items.length}${items.length!==total?` / ${total}`:""}</span><span class="desc">${COL_DESC[col]}</span></div>${body}`;
+    board.appendChild(sec);
+  });
+  document.getElementById("noresults").style.display = shown? "none":"block";
+  document.getElementById("shown").textContent = `${shown} of ${DATA.length} shown`;
+}
+
+buildChips(document.getElementById("f-col"),["All",...COLS],"col");
+buildChips(document.getElementById("f-pri"),["All","PO Blocker","P1 Critical","P2 High","P3 Medium","No priority"],"pri");
+buildChips(document.getElementById("f-by"),["All",...BYS],"by");
+document.getElementById("q").addEventListener("input",e=>{state.q=e.target.value;render();});
+render();
+</script>
+</body></html>

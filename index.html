@@ -1,0 +1,117 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Dallal · Reports</title>
+<style>
+  :root{
+    --bg:#f5f6f9; --surface:#ffffff; --surface-2:#fbfcfd; --border:#e4e7ec; --border-2:#eef1f4;
+    --ink:#192029; --ink-2:#48525f; --ink-3:#7b8692;
+    --accent:#4a5fc1; --accent-soft:#edf0fb; --accent-ink:#3a4ba3;
+    --live:#1f9e74; --live-bg:#e7f6ef;
+    --shadow:0 1px 2px rgba(20,30,50,.04),0 2px 8px rgba(20,30,50,.05);
+    --shadow-lg:0 2px 4px rgba(20,30,50,.05),0 8px 24px rgba(20,30,50,.08);
+    --mono:ui-monospace,"SF Mono",SFMono-Regular,Menlo,Consolas,monospace;
+    --sans:-apple-system,BlinkMacSystemFont,"Segoe UI",system-ui,sans-serif;
+  }
+  @media (prefers-color-scheme:dark){
+    :root{
+      --bg:#0e1218; --surface:#161c25; --surface-2:#1a2130; --border:#28313f; --border-2:#222a37;
+      --ink:#e9edf3; --ink-2:#a7b2c0; --ink-3:#697484;
+      --accent:#8296f2; --accent-soft:#1f2740; --accent-ink:#aab8f8;
+      --live:#3fbb8c; --live-bg:#13261f;
+      --shadow:0 1px 2px rgba(0,0,0,.25),0 2px 10px rgba(0,0,0,.28);
+      --shadow-lg:0 2px 6px rgba(0,0,0,.3),0 10px 30px rgba(0,0,0,.4);
+    }
+  }
+  *{box-sizing:border-box}
+  body{margin:0;background:var(--bg);color:var(--ink);font-family:var(--sans);
+    line-height:1.5;-webkit-font-smoothing:antialiased;font-size:15px}
+  .wrap{max-width:900px;margin:0 auto;padding:56px 24px 90px}
+
+  .eyebrow{font-size:11px;font-weight:650;letter-spacing:.14em;text-transform:uppercase;color:var(--accent);margin:0 0 10px}
+  h1{font-size:clamp(28px,5vw,40px);line-height:1.05;letter-spacing:-.025em;font-weight:720;margin:0;text-wrap:balance}
+  .lead{margin:14px 0 0;max-width:60ch;color:var(--ink-2);font-size:15.5px}
+  .lead code{font-family:var(--mono);font-size:13px;background:var(--surface-2);border:1px solid var(--border);
+    padding:1px 6px;border-radius:5px}
+
+  .sec-label{font-size:11px;font-weight:650;letter-spacing:.1em;text-transform:uppercase;color:var(--ink-3);
+    margin:44px 2px 14px;display:flex;align-items:center;gap:10px}
+  .sec-label::after{content:"";flex:1;height:1px;background:var(--border)}
+
+  .grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(240px,1fr));gap:14px}
+
+  .card{display:flex;flex-direction:column;gap:0;text-decoration:none;color:inherit;
+    background:var(--surface);border:1px solid var(--border);border-radius:15px;padding:20px;
+    box-shadow:var(--shadow);transition:transform .14s ease,box-shadow .14s ease,border-color .14s ease;position:relative;overflow:hidden}
+  .card:hover{transform:translateY(-2px);box-shadow:var(--shadow-lg);border-color:var(--accent)}
+  .card:focus-visible{outline:2px solid var(--accent);outline-offset:3px}
+  .card .ico{width:38px;height:38px;border-radius:10px;display:grid;place-items:center;margin-bottom:14px;
+    background:var(--accent-soft);color:var(--accent-ink)}
+  .card .ico svg{width:20px;height:20px}
+  .card h3{margin:0;font-size:15.5px;font-weight:640;letter-spacing:-.01em;line-height:1.25}
+  .card p{margin:6px 0 0;font-size:13px;color:var(--ink-3);line-height:1.45}
+  .card .foot{margin-top:16px;display:flex;align-items:center;gap:8px;flex-wrap:wrap}
+  .badge{font-size:11px;font-weight:650;font-family:var(--mono);padding:3px 8px;border-radius:999px;
+    background:var(--accent-soft);color:var(--accent-ink);font-variant-numeric:tabular-nums}
+  .badge.live{background:var(--live-bg);color:var(--live);display:inline-flex;align-items:center;gap:5px}
+  .badge.live::before{content:"";width:6px;height:6px;border-radius:50%;background:var(--live)}
+  .meta{font-size:11.5px;color:var(--ink-3);margin-left:auto;font-variant-numeric:tabular-nums}
+  .arrow{color:var(--ink-3);transition:transform .14s ease,color .14s}
+  .card:hover .arrow{color:var(--accent);transform:translateX(2px)}
+
+  .foot-note{margin-top:52px;padding-top:20px;border-top:1px solid var(--border);
+    font-size:12.5px;color:var(--ink-3);display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap}
+  .foot-note a{color:var(--accent-ink);text-decoration:none}
+  .foot-note a:hover{text-decoration:underline}
+  @media (prefers-reduced-motion:reduce){*{transition:none!important}}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header>
+    <p class="eyebrow">Dallal · Internal</p>
+    <h1>Reports &amp; dashboards</h1>
+    <p class="lead">Live analytics and board-triage artifacts for the Dallal product team, hosted at <code>gktiwari25.github.io</code>. Dashboards read live from Supabase under your signed-in account; triage reports are generated snapshots.</p>
+  </header>
+
+  <div class="sec-label">Board triage</div>
+  <div class="grid">
+    <a class="card" href="qa-bugs-anas.html">
+      <div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9"><path d="M8 2v3M16 2v3"/><rect x="4" y="5" width="16" height="16" rx="2"/><path d="M9 11l2 2 4-4"/></svg></div>
+      <h3>Open tickets owned by Anas</h3>
+      <p>QA-raised &amp; product-lead tickets across Raised by QA, Reopen and In Development — filterable by column, priority and author.</p>
+      <div class="foot"><span class="badge">28 open</span><span class="meta">13 Nov 2026 →</span></div>
+    </a>
+  </div>
+
+  <div class="sec-label">Live dashboards</div>
+  <div class="grid">
+    <a class="card" href="dallal-sprint-dashboard/">
+      <div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9"><path d="M3 3v18h18"/><path d="M7 15l4-5 3 3 5-7"/></svg></div>
+      <h3>Sprint &amp; Delivery</h3>
+      <p>Burndown, velocity, carryover, bug flow, due dates and sprint health.</p>
+      <div class="foot"><span class="badge live">Live</span><span class="meta arrow">→</span></div>
+    </a>
+    <a class="card" href="dallal-sprint-dashboard/kpi-command-center.html">
+      <div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg></div>
+      <h3>KPI Command Center</h3>
+      <p>Unified 22-KPI executive view — delivery, quality and engagement.</p>
+      <div class="foot"><span class="badge live">Live</span><span class="meta arrow">→</span></div>
+    </a>
+    <a class="card" href="dallal-sprint-dashboard/growth-dashboard.html">
+      <div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9"><path d="M3 17l6-6 4 4 7-8"/><path d="M14 7h7v7"/></svg></div>
+      <h3>Growth</h3>
+      <p>Acquisition → activation funnel across GA4, Adjust and Amplitude.</p>
+      <div class="foot"><span class="badge live">Live</span><span class="meta arrow">→</span></div>
+    </a>
+  </div>
+
+  <div class="foot-note">
+    <span>Hosted on GitHub Pages · <a href="https://github.com/gktiwari25/gktiwari25.github.io">source</a></span>
+    <span>Dallal product team</span>
+  </div>
+</div>
+</body>
+</html>
