@@ -160,19 +160,17 @@
   </header>
 
   <section class="tiles">
-    <div class="tile"><div class="k">Open tickets</div><div class="v" id="t-total">5</div>
+    <div class="tile"><div class="k">Open tickets</div><div class="v" id="t-total">3</div>
       <div class="split"><span><i class="swatch" style="background:var(--accent)"></i>Owned by Anas</span></div></div>
     <div class="tile"><div class="k">By priority</div><div class="v" id="t-po">2<small>blocker</small></div>
       <div class="split">
-        <span><i class="swatch" style="background:var(--p1)"></i>P1 · 1</span>
         <span><i class="swatch" style="background:var(--p3)"></i>P3 · 1</span>
-        <span><i class="swatch" style="background:var(--none)"></i>None · 1</span>
       </div></div>
-    <div class="tile"><div class="k">Reopened</div><div class="v" id="t-reopen">0<small>of 5</small></div>
+    <div class="tile"><div class="k">Reopened</div><div class="v" id="t-reopen">0<small>of 3</small></div>
       <div class="split"><span><i class="swatch" style="background:var(--reopen)"></i>Bounced back ≥1×</span></div></div>
     <div class="tile"><div class="k">By author</div><div class="v" id="t-top">2<small>Akash</small></div>
       <div class="split">
-        <span>Rayan · 2</span><span>Sudhanshu · 1</span><span>Shrouk · 0</span><span>Gyselda · 0</span>
+        <span>Sudhanshu · 1</span><span>Rayan · 0</span><span>Shrouk · 0</span><span>Gyselda · 0</span>
       </div></div>
   </section>
 
@@ -204,8 +202,6 @@ const DATA = [
   {col:"Raised by QA", pr:"P3 Medium", title:"[Web] Listing flow shows “discard this draft and start again” — copy not in Figma", by:"Sudhanshu", plat:"FE-W", sprint:19, ro:0, url:"https://app.asana.com/0/1214388950902741/1220414448165241"},
   // ---- Reopen ----
   {col:"Reopen", pr:"PO Blocker", title:"[Web] Filters: Price range component doesn’t match design", by:"Akash", plat:"FE-W", sprint:18, ro:0, url:"https://app.asana.com/0/1214388950902741/1220422012504224"},
-  {col:"Reopen", pr:"P1 Critical", title:"DAL-UI/UX Overhaul — Listing Flow, Search, and Filter", by:"Rayan", plat:"—", sprint:18, ro:0, url:"https://app.asana.com/0/1214388950902741/1219570455965067"},
-  {col:"Reopen", pr:"No priority", title:"Gyselda’s Review", by:"Rayan", plat:"—", sprint:null, ro:0, url:"https://app.asana.com/0/1214388950902741/1220165596923589"},
 ];
 
 const COLS = ["Raised by QA","Reopen","In Development"];
